@@ -5,15 +5,18 @@ let root = document.getElementById('root')
 let searchInp= document.querySelector('.search_input')
 let pageBtns = document.getElementById('pageBtns')
 let categories = document.querySelector('.categories')
+let currentPage = 1; 
 
-function printAllMovieCards(currentPage = 1) {
-    
-    fetch('https://api.themoviedb.org/3/movie/popular?'+api_key)
-      .then(response => response.json())
-      .then(response=>printMoviesCards(response.results) )
-      .catch(err => console.error(err));
+
+function printAllMovieCards(page = 1) {
+    fetch(`https://api.themoviedb.org/3/movie/popular?${api_key}&page=${page}`)
+        .then(response => response.json())
+        .then(response => {
+            printMoviesCards(response.results);
+            printBtns(response.total_pages); 
+        })
 }
-printAllMovieCards()
+printAllMovieCards();
 
 
 // print Cards
@@ -57,30 +60,33 @@ searchInp.addEventListener('input', (e) => {
 });
 
 
-// // page to page //but it's not ready
-// fetch('https://dummyjson.com/products')
-// .then(res=>res.json())
-// .then(res=>printBtns(res.total))
+// Էջերի կոճակներ ստեղծելու ֆունկցիա
+function printBtns(totalPages) {
+    pageBtns.innerHTML = ''; 
+    for (let i = 1; i <= Math.min(totalPages, 20); i++) { // Ցույց ենք տալիս 10 էջ առավելագույնը
+        let pageBtn = document.createElement('button');
+        pageBtn.innerHTML = i;
+        if (i === currentPage) {
+            pageBtn.style.backgroundColor = 'yellow'; // Ընթացիկ էջը նշում ենք
+        }
+        pageBtn.addEventListener('click', () => {
+            currentPage = i; // Թարմացնում ենք ընթացիկ էջը
+            printAllMovieCards(i);
+            highlightPageButton(i);
+        });
+        pageBtns.append(pageBtn);
+    }
+}
 
-// function printBtns(totalProducts) {
-//     pageBtns.innerHTML = ''
-//     let pagesCount = Math.ceil(totalProducts / 30)
-//     for (let i = 1; i <= pagesCount; i++) {
-//         let pageBtn = document.createElement('button')
-//         pageBtn.innerHTML = i
-//         pageBtn.addEventListener('click',()=>{
-//             printAllProducts(i)
-//             document.querySelectorAll('button').forEach(btn => { 
-//                 btn.style.backgroundColor = ''
-//             })
-//             pageBtn.style.backgroundColor = 'yellow'
-//         })
-//         pageBtns.append(pageBtn)
-//     }
-// }
-
-
-
+// Ակտիվ էջի կոճակը գունավորելու ֆունկցիա
+function highlightPageButton(activePage) {
+    document.querySelectorAll('#pageBtns button').forEach(btn => {
+        btn.style.backgroundColor = '';
+        if (btn.innerHTML == activePage) {
+            btn.style.backgroundColor = 'yellow';
+        }
+    });
+}
 
 // take the generes
 fetch(`https://api.themoviedb.org/3/genre/movie/list?${api_key}`)
