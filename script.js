@@ -57,46 +57,60 @@ searchInp.addEventListener('input', (e) => {
 });
 
 
-// page to page //but it's not ready
-fetch('https://dummyjson.com/products')
-.then(res=>res.json())
-.then(res=>printBtns(res.total))
+// // page to page //but it's not ready
+// fetch('https://dummyjson.com/products')
+// .then(res=>res.json())
+// .then(res=>printBtns(res.total))
 
-function printBtns(totalProducts) {
-    pageBtns.innerHTML = ''
-    let pagesCount = Math.ceil(totalProducts / 30)
-    for (let i = 1; i <= pagesCount; i++) {
-        let pageBtn = document.createElement('button')
-        pageBtn.innerHTML = i
-        pageBtn.addEventListener('click',()=>{
-            printAllProducts(i)
-            document.querySelectorAll('button').forEach(btn => { 
-                btn.style.backgroundColor = ''
-            })
-            pageBtn.style.backgroundColor = 'yellow'
-        })
-        pageBtns.append(pageBtn)
-    }
+// function printBtns(totalProducts) {
+//     pageBtns.innerHTML = ''
+//     let pagesCount = Math.ceil(totalProducts / 30)
+//     for (let i = 1; i <= pagesCount; i++) {
+//         let pageBtn = document.createElement('button')
+//         pageBtn.innerHTML = i
+//         pageBtn.addEventListener('click',()=>{
+//             printAllProducts(i)
+//             document.querySelectorAll('button').forEach(btn => { 
+//                 btn.style.backgroundColor = ''
+//             })
+//             pageBtn.style.backgroundColor = 'yellow'
+//         })
+//         pageBtns.append(pageBtn)
+//     }
+// }
+
+
+
+
+// take the generes
+fetch(`https://api.themoviedb.org/3/genre/movie/list?${api_key}`)
+  .then(response => response.json())
+  .then(data => {
+    categories.innerHTML = ''; 
+    data.genres.forEach(genre => {
+      let btn = document.createElement('button');
+      btn.innerText = genre.name;
+      btn.onclick = () => getMoviesByCategory(genre.id, btn);
+      categories.append(btn);
+    });
+  })
+
+//print movies bt their genre
+function getMoviesByCategory(genreId, btn) {
+    fetch(`https://api.themoviedb.org/3/discover/movie?${api_key}&with_genres=${genreId}`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.results.length === 0) {
+            root.innerHTML = "<p>No movies found for this category.</p>";
+        } else {
+            printMoviesCards(data.results);
+        }
+      })
+
+    // Սեղմած կոճակը նշում ենք որպես ակտիվ
+    document.querySelectorAll('.categories button').forEach(button => {
+        button.style.backgroundColor = '';
+    });
+    btn.style.backgroundColor = 'red';
 }
 
-// categories
-
-// fetch('https://dummyjson.com/products/categories')
-// .then(res => res.json())
-// .then(res=>res.forEach((e)=>{
-//     categories.innerHTML+=`<button onclick="getProductsByCategories('${e.url}',this)" >${e.name}</button>`
-// })); 
-
-fetch('https://api.themoviedb.org/3/movie/popular?'+api_key)
-.then(response => response.json())
-.then(response => response.forEach((e)=>{
-    categories.innerHTML +=`<button onclick="getProductsByCategories('${e.url}',this)" >${e.name}</button>`
-}))
-function getProductsByCategories(url,elm){
-    fetch(url)
-    .then(res=>res.json())
-    .then(res=>printCards(res.products))
-    elm.classList.add("catBtn")
-    elm.style.background= "purple"
-   
-} 
