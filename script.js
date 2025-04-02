@@ -37,10 +37,10 @@ function printMoviesCards(arr) {
         root.append(card);
     });
 }
-
 function openMoviePage(movieId) {
-    window.location.href = `single.html?id=${movieId}`;
+    window.location.href = `single.html?id=${movieId}`
 }
+
 
 // search
 let timerId;
@@ -65,6 +65,8 @@ searchInp.addEventListener('input', (e) => {
         }
     }, 1000);
 });
+
+
 
 
 // page to page
@@ -97,6 +99,48 @@ function highlightPageButton(activePage) {
     })
 }
 
+
+// for movies genres
+fetch(`https://api.themoviedb.org/3/genre/movie/list?${api_key}`)
+  .then(response => response.json())
+  .then(data => {
+    categoriespart.innerHTML = `
+    <h2>Categories</h2>
+    <button class="popularPage">Popular</button>
+    `; 
+     allCategories.innerHTML = ''
+    data.genres.forEach(genre => {
+      let btn = document.createElement('button');
+      btn.classList.add('btn')
+      btn.innerText = genre.name;
+      btn.onclick = () => getMoviesByCategory(genre.id, btn);
+    allCategories.append(btn);
+    });
+    document.querySelector('.popularPage').addEventListener('click', () => {
+        window.location.href = 'index.html';
+    });
+  })
+  
+
+//print movies bt their genre
+function getMoviesByCategory(genreId, btn) {
+    fetch(`https://api.themoviedb.org/3/discover/movie?${api_key}&with_genres=${genreId}`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.results.length === 0) {
+            root.innerHTML = "<p>No movies found for this category.</p>";
+        } else {
+            printMoviesCards(data.results);
+        }
+      })
+
+    document.querySelectorAll('.categories button').forEach(button => {
+        button.style.backgroundColor = '';
+        button.style.color = '';
+    });
+    btn.style.backgroundColor = 'white';
+    btn.style.color = 'red';
+}
 // slider part
 function loadRandomMovies() {
     fetch(`https://api.themoviedb.org/3/movie/popular?${api_key}`)
