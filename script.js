@@ -199,7 +199,7 @@ function createActorsSlider(actors) {
             <div class="actors-slider">
                 ${actors.slice(0, 10).map(actor => `
                     <div class="actor-slide">
-                        <img src="${img_url + actor.profile_path}" alt="${actor.name}">
+                        <img src="${img_url + actor.profile_path}" alt="">
                         <p>${actor.name}</p>
                     </div>
                 `).join('')}
