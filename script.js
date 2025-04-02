@@ -69,77 +69,33 @@ searchInp.addEventListener('input', (e) => {
 
 // page to page
 function printBtns(totalPages) {
-    pageBtns.innerHTML = ''; 
-    for (let i = 1; i <= Math.min(totalPages, 20); i++) { 
+    pageBtns.innerHTML = ''
+    for (let i = 1; i <= Math.min(totalPages, 20); i++) {
         let pageBtn = document.createElement('button');
         pageBtn.classList.add('pageBtn')
         pageBtn.innerHTML = i;
         if (i === currentPage) {
-            pageBtn.style.backgroundColor = 'yellow'; 
+            pageBtn.style.backgroundColor = 'black'; 
         }
-        pageBtn.addEventListener('click', () => {
+        pageBtn.addEventListener('click',()=>{
             currentPage = i; 
             printAllMovieCards(i);
-            highlightPageButton(i);
-        });
-        pageBtns.append(pageBtn);
+             highlightPageButton(i);
+        })
+        pageBtns.append(pageBtn)
     }
 }
 
 function highlightPageButton(activePage) {
-    document.querySelectorAll('#pageBtns button').forEach(btn => {
+    document.querySelectorAll('#pageBtns button').forEach((btn)=>{
         btn.style.backgroundColor = '';
-        btn.style.color = '';
-        if (btn.innerHTML == activePage) {
-            btn.style.backgroundColor = 'black';
-            btn.style.color = 'red';
-        }
-    });
+                btn.style.color = '';
+                if (btn.innerHTML == activePage) {
+                    btn.style.backgroundColor = 'black';
+                    btn.style.color = 'red';
+                }
+    })
 }
-
-// take the generes
-fetch(`https://api.themoviedb.org/3/genre/movie/list?${api_key}`)
-  .then(response => response.json())
-  .then(data => {
-    categoriespart.innerHTML = `
-    <h2>Categories</h2>
-    <button class="popularPage">Popular</button>
-    `; 
-     allCategories.innerHTML = ''
-    data.genres.forEach(genre => {
-      let btn = document.createElement('button');
-      btn.classList.add('btn')
-      btn.innerText = genre.name;
-      btn.onclick = () => getMoviesByCategory(genre.id, btn);
-    allCategories.append(btn);
-    });
-    document.querySelector('.popularPage').addEventListener('click', () => {
-        window.location.href = 'index.html';
-    });
-  })
-  
-
-//print movies bt their genre
-function getMoviesByCategory(genreId, btn) {
-    fetch(`https://api.themoviedb.org/3/discover/movie?${api_key}&with_genres=${genreId}`)
-      .then(res => res.json())
-      .then(data => {
-        if (data.results.length === 0) {
-            root.innerHTML = "<p>No movies found for this category.</p>";
-        } else {
-            printMoviesCards(data.results);
-        }
-      })
-
-    document.querySelectorAll('.categories button').forEach(button => {
-        button.style.backgroundColor = '';
-        button.style.color = '';
-    });
-    btn.style.backgroundColor = 'white';
-    btn.style.color = 'red';
-}
-
-
 
 // slider part
 function loadRandomMovies() {

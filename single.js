@@ -23,8 +23,3 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}?${api_key}`)
             <h2>Release Date: ${res.release_date}</h2>
         `;
     })
-    .catch(error => console.error("Error fetching movie data:", error));
-
-function goBack() {
-    window.history.back();
-}
