@@ -9,7 +9,22 @@ let categoriespart = document.querySelector('.categoriespart')
 let allCategories = document.querySelector('.allCategories')
 let currentPage = 1; 
 let slider = document.getElementById("slider");
+let searchImg = document.querySelector('.searchImg')
+let logo = document.querySelector('.logo')
+let closebtn = document.querySelector('.closebtn')
 
+
+searchImg.addEventListener('click',()=>{
+    searchImg.style.display="none"
+    searchInp.style.display="flex"
+    logo.style.display="none"
+})
+
+closebtn.addEventListener('click',()=>{
+    searchImg.style.display="block"
+    searchInp.style.display="none"
+    logo.style.display="block"
+})
 
 
 function printAllMovieCards(page = 1) {

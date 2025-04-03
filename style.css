@@ -315,3 +315,40 @@ input::placeholder{
     font-weight: 500;
 }
 /* movies part */
+
+
+
+
+
+/* media part */
+@media (max-width:680px) {
+    #search{
+        width: 200px;
+        height: 36px;
+    }
+    .logo{
+        width: 140px;
+    }
+}
+
+@media (max-width:456px){
+
+.search_input>img{
+        display: block;
+    }
+    .search_input{
+        display: none;
+    }
+}
+.closebtn{
+    font-size: 26px;
+    font-weight: 700;
+    color: #E50000;
+}
+.search_input{
+    align-items: center;
+    gap: 20px;
+}
+.search_input>h1{
+    cursor: pointer;
+}

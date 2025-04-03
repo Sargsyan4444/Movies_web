@@ -188,3 +188,12 @@ button:hover {
     flex-direction: column;
     gap: 50px;
 }
+
+
+/* media part */
+@media (max-width:680px) {
+    #search{
+        width: 200px;
+        height: 36px;
+    }
+}
