@@ -121,3 +121,70 @@ button {
 button:hover {
     background-color: darkred;
 }
+
+
+/* ======================= */
+
+
+#actorsList {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 15px;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    max-width: 90%;
+    position: relative;
+    z-index: 2;
+    width: 530px;
+}
+
+#actorsList::-webkit-scrollbar {
+    height: 8px;
+}
+
+#actorsList::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+#actorsList::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+.actor_card {
+    flex: 0 0 auto;
+    width: 120px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+    transition: transform 0.3s ease;
+    height: 200px;
+}
+
+.actor_card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid white;
+}
+
+.actor_card h3 {
+    font-size: 14px;
+    color: white;
+    margin-top: 5px;
+    text-wrap: wrap;
+}
+
+.actor_card:hover {
+    transform: scale(1.1);
+}
+.singleInfoPart{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
