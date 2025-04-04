@@ -16,12 +16,14 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}?${api_key}`)
         smallImg.src = img_url + res.poster_path;
         let genres = res.genres.map(genre => genre.name).join(', ');
         movieInfo.innerHTML = `
-            <h1>${res.title}</h1>
-            <h2>Genre: ${genres}</h2>
-            <h2>Language: ${res.original_language}</h2>
+        <h1>${res.title}</h1>
+        <div class="littleInfo">
+        <h2>Genre: ${genres}</h2>
+        <h2>Language: ${res.original_language}</h2>
+        <h3>${res.status}</h3>
+        <h2>Release Date: ${res.release_date}</h2>
+        </div>
             <p>${res.overview}</p>
-            <h3>${res.status}</h3>
-            <h2>Release Date: ${res.release_date}</h2>
         `;
     })
 
@@ -39,15 +41,15 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}?${api_key}`)
     }))
 
 
-    fetch(`https:api.themoviedb.org/3/movie/${movieId}/videos?${api_key}`)
-    .then(res=>res.json())
-    .then(res => res.results.forEach((e)=>{
-        let videoBox = document.createElement('div')
-        videoBox.classList.add('videoBox')
-        videoBox.innerHTML=`
-            <iframe width="150" height="150" src="https://www.youtube.com/embed/${e.key}"
-             title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
-            gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        `
-        movieBox.append(videoBox)
-    }))
+    // fetch(`https:api.themoviedb.org/3/movie/${movieId}/videos?${api_key}`)
+    // .then(res=>res.json())
+    // .then(res => res.results.forEach((e)=>{
+    //     let videoBox = document.createElement('div')
+    //     videoBox.classList.add('videoBox')
+    //     videoBox.innerHTML=`
+    //         <iframe width="400" height="400" src="https://www.youtube.com/embed/${e.key}"
+    //          title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+    //         gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    //     `
+    //     movieBox.append(videoBox)
+    // }))
