@@ -55,10 +55,10 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}?${api_key}`)
           videoBox.classList.add('videoBox');
           videoBox.innerHTML = `
           <div class="vd_card">
-          <iframe width="400" height="400" src="https://www.youtube.com/embed/${e.key} class="videoCard"
+          <iframe width="400" height="400" src="https://www.youtube.com/embed/${e.key}"  class="videoCard"
           title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
           encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen onclick="openPopup('${e.key}')"></iframe>
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen ></iframe>
            <button onclick="openPopup('${e.key}')" class="openPopupBtn">Watch Trailer</button>
           </div>
           `;

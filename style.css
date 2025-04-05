@@ -249,6 +249,7 @@ input::placeholder{
     align-items: center;
     justify-content: center;
     gap: 10px;
+    flex-wrap: wrap;
 }
 .pageBtn{
     width: 35px;
@@ -355,6 +356,19 @@ input::placeholder{
     }
     .logo{
         width: 140px;
+    }
+    .categories__container{
+        flex-wrap: nowrap;
+    }
+    .categoriespart{
+        flex-direction: column;
+        gap: 27px;
+    }
+    .categoriespart>h2{
+        font-size: 32px;
+    }
+    .slide-info{
+        width: 200px;
     }
 }
 
