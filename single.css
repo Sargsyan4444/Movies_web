@@ -49,6 +49,18 @@
     z-index: -1;
   }
   
+  /* #movie__container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 6;
+    display: none;
+  } */
+  
   .mainContent {
     position: relative;
     z-index: 2;
@@ -209,4 +221,63 @@
     color: #000;
     animation: fadeInScale 0.8s ease-out forwards;
     transition: 0.8s;
+}
+
+
+ /* Add this CSS to style the popup */
+.video-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup-main {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 800px;
+  width: 100%;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.popup-header button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.popup-info {
+  margin-top: 20px;
+}
+.openPopupBtn{
+  width: 90px;
+  height: 50px;
+  outline: none;
+  animation: fadeInScale 0.8s ease-out forwards;
+  border: 1px solid #E50000;
+  border-radius: 5px;
+  background-color: #000;
+  color: #E50000;
+  margin-right: 70px;
+  
+  cursor: pointer;
+}
+.vd_card{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
 }

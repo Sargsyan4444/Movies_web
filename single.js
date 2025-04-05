@@ -4,9 +4,7 @@ let bgcImage = document.getElementById('movie__container');
 let smallImg = document.getElementById('smallImg');
 let actorsList = document.getElementById('actorsList');
 let movieBox = document.getElementById('movieBox')
-let popupOverlay = document.getElementById('popupOverlay');
-let popupIframe = document.getElementById('popupIframe');
-let closePopup = document.getElementById('closePopup');
+let popupBody = document.querySelector(".video-popup");
 
 let api_key = "api_key=9b702a6b89b0278738dab62417267c49";
 let img_url_original = "https://image.tmdb.org/t/p/original";
@@ -56,12 +54,41 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}?${api_key}`)
           let videoBox = document.createElement('div');
           videoBox.classList.add('videoBox');
           videoBox.innerHTML = `
-            <iframe width="400" height="400" src="https://www.youtube.com/embed/${e.key}"
-            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
-            encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <div class="vd_card">
+          <iframe width="400" height="400" src="https://www.youtube.com/embed/${e.key} class="videoCard"
+          title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+          encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen onclick="openPopup('${e.key}')"></iframe>
+           <button onclick="openPopup('${e.key}')" class="openPopupBtn">Watch Trailer</button>
+          </div>
           `;
           movieBox.append(videoBox);
         });
       }
     });
+
+    
+
+
+
+    function openPopup(videoKey) {
+      popupBody.style.display = "flex";
+      popupBody.innerHTML = `
+          <div class="popup-main">
+              <div class="popup-header">
+                  <button onclick="closePopup()">X</button>
+              </div>
+              <div class="popup-info">
+                  <iframe width="100%" height="500" src="https://www.youtube.com/embed/${videoKey}" 
+                  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+                  encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+          </div>
+      `;
+  }
+  
+  function closePopup() {
+      popupBody.innerHTML = "";
+      popupBody.style.display = "none";
+  }

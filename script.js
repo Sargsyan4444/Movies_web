@@ -12,7 +12,7 @@ let slider = document.getElementById("slider");
 let searchImg = document.querySelector('.searchImg')
 let logo = document.querySelector('.logo')
 let closebtn = document.querySelector('.closebtn')
-
+var selectedgenre = []
 
 searchImg.addEventListener('click',()=>{
     searchImg.style.display="none"
@@ -52,6 +52,8 @@ function printMoviesCards(arr) {
         root.append(card);
     });
 }
+
+
 function openMoviePage(movieId) {
     window.location.href = `single.html?id=${movieId}`
 }
@@ -116,7 +118,44 @@ function highlightPageButton(activePage) {
 
 
 // for movies genres
-fetch(`https://api.themoviedb.org/3/genre/movie/list?${api_key}`)
+// fetch(`https://api.themoviedb.org/3/genre/movie/list?${api_key}`)
+//   .then(response => response.json())
+//   .then(data => {
+//     categoriespart.innerHTML = `
+//     <h2>Categories</h2>
+//     <button class="popularPage">Popular</button>
+//     `; 
+//      allCategories.innerHTML = ''
+//     data.genres.forEach(genre => {
+//       let btn = document.createElement('button');
+//       btn.classList.add('btn')
+//       btn.id = genre.id
+//       btn.innerText = genre.name;
+//     btn.addEventListener('click',()=>{
+//         if (selectedgenre.length == 0) {
+//             selectedgenre.push(genre.id)
+//         }else{
+//             if (selectedgenre.includes(genre.id)) {
+//                 selectedgenre.forEach((id,index)=>{
+//                     if (id === genre.id) {
+//                         selectedgenre.splice(index,1)
+//                     }
+//                 })
+//             }else{
+//                 selectedgenre.push(genre.id)
+//             }
+//         }
+        
+//     })
+//     allCategories.append(btn);
+//     });
+//   })
+  
+
+
+
+
+  fetch(`https://api.themoviedb.org/3/genre/movie/list?${api_key}`)
   .then(response => response.json())
   .then(data => {
     categoriespart.innerHTML = `
@@ -127,6 +166,7 @@ fetch(`https://api.themoviedb.org/3/genre/movie/list?${api_key}`)
     data.genres.forEach(genre => {
       let btn = document.createElement('button');
       btn.classList.add('btn')
+      btn.id = genre.id
       btn.innerText = genre.name;
       btn.onclick = () => getMoviesByCategory(genre.id, btn);
     allCategories.append(btn);
@@ -137,7 +177,7 @@ fetch(`https://api.themoviedb.org/3/genre/movie/list?${api_key}`)
   })
   
 
-//print movies bt their genre
+// print movies bt their genre
 function getMoviesByCategory(genreId, btn) {
     fetch(`https://api.themoviedb.org/3/discover/movie?${api_key}&with_genres=${genreId}`)
       .then(res => res.json())

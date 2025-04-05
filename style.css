@@ -137,6 +137,14 @@ input::placeholder{
     font-size: 40px;
     font-weight: 700;
 }
+
+.star-rating {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 20px;
+    color: #FFD700; /* Gold color */
+}
 .categories__container{
     display: flex;
     align-items: center;
