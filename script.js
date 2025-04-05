@@ -46,8 +46,11 @@ function printMoviesCards(arr) {
         card.classList.add('card');
         card.onclick = () => openMoviePage(movie.id); 
         card.innerHTML = `
-            <img src="${img_url + movie.poster_path}" />
+            <div class="cardMain">
+            <img src="${img_url + movie.poster_path}" class="mainImg" />
             <h2>${movie.title}</h2>
+            </div>
+            <i class="fa-solid fa-bookmark"></i>
         `;
         root.append(card);
     });
