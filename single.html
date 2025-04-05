@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="single.css">
-    <title>Movie Details</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="single.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+  <title>Movie Details</title>
 </head>
 <body>
-    <div id="movie__container">
-        <img src="" alt="Movie Poster" id="smallImg" />
-        <div class="singleInfoPart">
-            <div class="movieInfo"></div>
-         <div id="actorsList">
-        </div>
-        <div id="movieBox"></div>
-        </div>
-        <a href="index.html"><button>Go Back</button></a>
-    </div>
+  <div id="movie__container"></div>
 
-    <script src="single.js"></script>
+  <div class="mainContent">
+    <img src="" alt="Movie Poster" id="smallImg" />
+    <div class="movieInfo"></div>
+
+    <h2 class="Cast_title">Cast</h2>
+    <div id="actorsList"></div>
+    <h2 class="trailers">Trailers</h2>
+    <div id="movieBox"></div>
+    <a href="index.html" class="backBtnlink"><button class="backBtn">Go Back</button></a>
+  </div>
+
+  <script src="single.js"></script>
 </body>
 </html>
