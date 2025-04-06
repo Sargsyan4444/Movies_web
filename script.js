@@ -45,7 +45,7 @@ closeMenuBtn.addEventListener('click',()=>{
 })
 
 function printAllMovieCards(page = 1) {
-    fetch(`https://api.themoviedb.org/3/movie/popular?${api_key}&page=${page}`)
+    fetch(`https://api.themoviedb.org/3/movie/popular?${api_key}&page=${page}`)   //arandin kbacatrvi
         .then(response => response.json())
         .then(response => {
             printMoviesCards(response.results);
@@ -256,9 +256,11 @@ function createSlider(movies) {
                 <p>${movie.overview.substring(0, 100)}...</p>
             </div>
         `;
+        slide.addEventListener('click',()=>{
+            openMoviePage(movie.id);
+        })
         slider.appendChild(slide);
     });
-
     startSlideAnimation();
 }
 

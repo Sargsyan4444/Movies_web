@@ -47,6 +47,8 @@ body{
 header{
     background-color: #1E1E1E;
     width: 100%;
+    position: fixed;
+    z-index: 999;
 }
 .header__container{
     display: flex;
@@ -106,6 +108,7 @@ input::placeholder{
     color: black;
     width: 90px;
     height: 45px;
+    cursor: pointer;
 }
 .logo{
     width: 200px;
