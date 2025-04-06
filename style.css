@@ -20,6 +20,9 @@ body{
     flex-wrap: wrap;
     gap: 10px;
 }
+#burgermenu{
+    display: none;
+}
 .card{
     width: 200px;
     height: 300px;
@@ -54,6 +57,25 @@ header{
 [class*="__container"] {
     max-width: 1440px;
     margin: 0 auto;
+}
+.menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+.menu_list{
+    list-style: none;
+}
+.menu_link:hover{
+    color: #fff;
+}
+.menu_link{
+    color: #E50000;
+    text-decoration: none;
+    font-size: 20px;
+
+
 }
 #search{
     width: 283px;
@@ -241,7 +263,17 @@ input::placeholder{
     transition: all 0.3s ease-in-out;
 
 }
-
+.mobileMenu{
+    display: none;
+    gap: 20px;
+}
+.closeMenuBtn>h1{
+    font-size: 31px;
+    color: red;
+}
+.mobileMenu>li{
+    padding-top: 10px;
+}
 .mainImg:hover {
     width: 100%;
     height: 100%;
@@ -251,11 +283,21 @@ input::placeholder{
 .cardMain > h2 {
     font-size: 17px;
     text-align: center;
-    padding-bottom: 40px;
+    /* padding-bottom: 15px; */
     transition: opacity 0.3s ease-in-out;
 }
-
-
+.stars{
+    padding-bottom: 20px;
+}
+.mobileMenu>li{
+    list-style: none;
+}
+.mobileMenuLink{
+    /* transform: none; */
+    text-decoration: none;
+    color: #E50000;
+    font-size: 18px;
+}
 .movieCards__container{
     display: flex;
     align-items: center;
@@ -370,6 +412,76 @@ input::placeholder{
     color: #fff;
     padding-right: 140px;
 }
+.fa-bars{
+    font-size: 30px;
+    color: #E50000;
+    padding-top: 20px;
+}
+/* footer */
+
+.footer__container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px 10px;
+}
+footer{
+    background-color: #000;
+    width: 100%;
+}
+.footer_mainInfo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 10px;
+}
+.footer_info>h3{
+    font-size: 18px;
+    color: #fff;
+}
+.footer_info>p{
+    color: #E50000;
+}
+.footer_info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+.footer_mages{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+.footer_mages>img{
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+}
+.footer__container>img{
+    width: 200px;
+    height: 60px;object-fit: contain;
+}
+.footer_lastText{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.footer_lastText>p{
+    color: #E50000;
+}
+.lasttext_littles{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+}
+.lasttext_littles>p{
+    color: #E50000;
+}
+
+
 /* movies part */
 
 
@@ -377,6 +489,33 @@ input::placeholder{
 
 
 /* media part */
+
+@media (max-width:1104px){
+    .logo{
+        width: 173px;
+    }
+    .menu_link{
+        font-size: 17px;
+    }
+    .menu{
+        gap: 14px;
+    }
+    #search{
+        width: 226px;
+    }
+    .signIn {
+        width: 75px;
+        height: 42px;
+    }
+}
+@media (max-width:766px){
+    #burgermenu{
+        display: block;
+    }
+    .menu{
+        display: none;
+    }
+}
 @media (max-width:680px) {
     #search{
         width: 200px;
@@ -399,6 +538,11 @@ input::placeholder{
         width: 200px;
     }
 }
+@media (max-width:600px){
+    .signIn {
+        display: none;
+    }
+}
 
 @media (max-width:456px){
 
@@ -411,20 +555,30 @@ input::placeholder{
     .search_input>h1{
         display: block;
     }
+    .logo{
+        width: 120px;
+    }
 }
 
 
+@media (max-width:680px){
+  .footer_info>h3,p{
+    font-size: 13px;
+  }
+  .footer_mages>img {
+    width: 38px;
+    height: 56px;
+    object-fit: contain;
+}
+}
 
-
-
-
-
-
-
-
-
-
-
-
+@media (max-width:615px){
+    .footer_mainInfo{
+        flex-wrap: wrap;
+    }
+    .footer_info{
+        padding: 10px;
+      }
+}
 
 

@@ -12,20 +12,37 @@ let slider = document.getElementById("slider");
 let searchImg = document.querySelector('.searchImg')
 let logo = document.querySelector('.logo')
 let closebtn = document.querySelector('.closebtn')
+let burgerMenu = document.getElementById('burgermenu')
+let mobileMenu = document.querySelector('.mobileMenu')
+let closeMenuBtn = document.querySelector('.closeMenuBtn')
 var selectedgenre = []
 
 searchImg.addEventListener('click',()=>{
     searchImg.style.display="none"
     searchInp.style.display="flex"
     logo.style.display="none"
+    burgerMenu.style.display="none"
 })
 
 closebtn.addEventListener('click',()=>{
     searchImg.style.display="block"
     searchInp.style.display="none"
     logo.style.display="block"
+    burgerMenu.style.display="block"
 })
+burgerMenu.addEventListener('click',()=>{
+    searchImg.style.display ="none"
+    logo.style.display="none"
+    mobileMenu.style.display = "flex"
+    burgerMenu.style.display = "none"
+})
+closeMenuBtn.addEventListener('click',()=>{
+    searchImg.style.display ="block"
+    logo.style.display="block"
+    mobileMenu.style.display = "none"
+    burgerMenu.style.display = "block"
 
+})
 
 function printAllMovieCards(page = 1) {
     fetch(`https://api.themoviedb.org/3/movie/popular?${api_key}&page=${page}`)
@@ -50,12 +67,29 @@ function printMoviesCards(arr) {
             <img src="${img_url + movie.poster_path}" class="mainImg" />
             <h2>${movie.title}</h2>
             </div>
-            <i class="fa-solid fa-bookmark"></i>
+            <div class="rating-stars"></div>
         `;
+        let ratingContainer = card.querySelector(".rating-stars");
+        let stars = createStars(movie.vote_average, 10);
+
+        ratingContainer.append(stars);
         root.append(card);
     });
 }
+function createStars(rating, maxStars = 10) {
+    const starContainer = document.createElement("div");
+    starContainer.classList.add("stars");
+    let fullStars = Math.round(rating / 2); 
+    for (let i = 1; i <= 5; i++) {
+        const star = document.createElement("span");
+        star.innerHTML = i <= fullStars ? "★" : "☆";
+        star.style.color = "gold";
+        star.style.fontSize = "20px";
+        starContainer.appendChild(star);
+    }
 
+    return starContainer;
+}
 
 function openMoviePage(movieId) {
     window.location.href = `single.html?id=${movieId}`
