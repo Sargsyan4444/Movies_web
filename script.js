@@ -45,7 +45,7 @@ closeMenuBtn.addEventListener('click',()=>{
 })
 
 function printAllMovieCards(page = 1) {
-    fetch(`https://api.themoviedb.org/3/movie/popular?${api_key}&page=${page}`)   //arandin kbacatrvi
+    fetch(`https://api.themoviedb.org/3/movie/popular?${api_key}&page=${page}`)   
         .then(response => response.json())
         .then(response => {
             printMoviesCards(response.results);
@@ -154,43 +154,6 @@ function highlightPageButton(activePage) {
 }
 
 
-// for movies genres
-// fetch(`https://api.themoviedb.org/3/genre/movie/list?${api_key}`)
-//   .then(response => response.json())
-//   .then(data => {
-//     categoriespart.innerHTML = `
-//     <h2>Categories</h2>
-//     <button class="popularPage">Popular</button>
-//     `; 
-//      allCategories.innerHTML = ''
-//     data.genres.forEach(genre => {
-//       let btn = document.createElement('button');
-//       btn.classList.add('btn')
-//       btn.id = genre.id
-//       btn.innerText = genre.name;
-//     btn.addEventListener('click',()=>{
-//         if (selectedgenre.length == 0) {
-//             selectedgenre.push(genre.id)
-//         }else{
-//             if (selectedgenre.includes(genre.id)) {
-//                 selectedgenre.forEach((id,index)=>{
-//                     if (id === genre.id) {
-//                         selectedgenre.splice(index,1)
-//                     }
-//                 })
-//             }else{
-//                 selectedgenre.push(genre.id)
-//             }
-//         }
-        
-//     })
-//     allCategories.append(btn);
-//     });
-//   })
-  
-
-
-
 
   fetch(`https://api.themoviedb.org/3/genre/movie/list?${api_key}`)
   .then(response => response.json())
@@ -205,7 +168,15 @@ function highlightPageButton(activePage) {
       btn.classList.add('btn')
       btn.id = genre.id
       btn.innerText = genre.name;
-      btn.onclick = () => getMoviesByCategory(genre.id, btn);
+      btn.addEventListener('click', () => {
+        let index = selectedgenre.indexOf(genre.id);
+        if (index > -1) {
+            selectedgenre.splice(index, 1); 
+        } else {
+            selectedgenre.push(genre.id);
+        }
+        getMoviesByCategory(selectedgenre, btn);
+    });
     allCategories.append(btn);
     });
     document.querySelector('.popularPage').addEventListener('click', () => {
@@ -224,14 +195,14 @@ function getMoviesByCategory(genreId, btn) {
         } else {
             printMoviesCards(data.results);
         }
+        document.querySelectorAll('.btn').forEach((elm)=>{
+            if (!selectedgenre.includes(parseInt(elm.id))) {
+                elm.classList.remove('active')
+            }else{
+                elm.classList.add('active')
+            }
+        })
       })
-
-    document.querySelectorAll('.categories button').forEach(button => {
-        button.style.backgroundColor = '';
-        button.style.color = '';
-    });
-    btn.style.backgroundColor = 'white';
-    btn.style.color = 'red';
 }
 // slider part
 function loadRandomMovies() {
@@ -276,62 +247,4 @@ loadRandomMovies();
 
 
 // actors part
-let actorsContainer = document.querySelector('.actors__container');
 
-function fetchActors() {
-    fetch(`https://api.themoviedb.org/3/person/popular?${api_key}`)
-        .then(res => res.json())
-        .then(data => {
-            createActorsSlider(data.results);
-        })
-}
-
-function createActorsSlider(actors) {
-    actorsContainer.innerHTML = `
-     <h2>Actors</h2>
-        <div class="actors-slider-wrapper">
-            <div class="actors-slider">
-                ${actors.slice(0, 10).map(actor => `
-                    <div class="actor-slide">
-                        <img src="${img_url + actor.profile_path}" alt="">
-                        <p>${actor.name}</p>
-                    </div>
-                `).join('')}
-            </div>
-        </div>
-    `;
-
-    let slider = document.querySelector('.actors-slider');
-    let slides = document.querySelectorAll('.actor-slide');
-
-    slides.forEach(slide => {
-        let clone = slide.cloneNode(true);
-        slider.appendChild(clone);
-    });
-
-    startActorSlider();
-}
-
-let actorIndex = 0;
-function startActorSlider() {
-    let slider = document.querySelector('.actors-slider');
-    let slideWidth = document.querySelector('.actor-slide').offsetWidth + 15; 
-    setInterval(() => {
-        actorIndex++;
-        slider.style.transition = "transform 0.5s ease-in-out";
-        slider.style.transform = `translateX(-${actorIndex * slideWidth}px)`;
-        setTimeout(() => {
-            if (actorIndex >= 10) {
-                actorIndex = 0;
-                slider.style.transition = "none";
-                slider.style.transform = `translateX(0)`;
-            }
-        }, 500);
-    }, 3000); 
-}
-
-fetchActors();
-
-
-
-// videos slider

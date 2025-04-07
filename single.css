@@ -428,7 +428,7 @@ footer{
 }
 .footer_mainInfo{
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   padding: 30px 10px;
 }
@@ -482,25 +482,6 @@ footer{
   display: none;
 }
 
-@media (max-width:680px){
-  .videoCard{
-    max-width: 500px;
-    max-height: 500px;
-    background-position: center;
-    background-size: contain;
-  }
-}
-@media (max-width:380px){
-  .videoCard{
-    width: 200px;
-    height: 200px;
-  }
-  .openPopupBtn{
-    width: 76px;
-    height: 32px;
-  }
-}
-
 @media (max-width:1104px){
   .logo{
       width: 173px;
@@ -520,6 +501,7 @@ footer{
       height: 42px;
   }
 }
+
 @media (max-width:766px){
   #burgermenu{
       display: block;
@@ -528,28 +510,74 @@ footer{
       display: none;
   }
 }
-@media (max-width:680px) {
-  #search{
-      width: 200px;
-      height: 36px;
+
+@media (max-width:680px){
+  .footer_info>h3,p{
+    font-size: 13px;
   }
-  .logo{
-      width: 140px;
+  .footer_mages>img {
+    width: 38px;
+    height: 56px;
+    object-fit: contain;
+}
+.videoCard{
+  max-width: 500px;
+  max-height: 500px;
+  background-position: center;
+  background-size: contain;
+}
+#search{
+  width: 200px;
+  height: 36px;
+}
+.logo{
+  width: 140px;
+}
+.categories__container{
+  flex-wrap: nowrap;
+}
+.categoriespart{
+  flex-direction: column;
+  gap: 27px;
+}
+.categoriespart>h2{
+  font-size: 32px;
+}
+.slide-info{
+  width: 200px;
+}
+.footer_info>h3,p{
+  font-size: 13px;
+}
+.footer_mages>img {
+  width: 38px;
+  height: 56px;
+  object-fit: contain;
+}
+}
+
+@media (max-width:380px){
+  .videoCard{
+    width: 200px;
+    height: 200px;
   }
-  .categories__container{
-      flex-wrap: nowrap;
-  }
-  .categoriespart{
-      flex-direction: column;
-      gap: 27px;
-  }
-  .categoriespart>h2{
-      font-size: 32px;
-  }
-  .slide-info{
-      width: 200px;
+  .openPopupBtn{
+    width: 76px;
+    height: 32px;
   }
 }
+
+@media (max-width:615px){
+  .footer_mainInfo{
+      flex-wrap: wrap;
+  }
+  .footer_info{
+    padding: 10px;
+  }
+}
+
+
+
 @media (max-width:600px){
   .signIn {
       display: none;
@@ -572,22 +600,5 @@ footer{
   }
 }
 
-@media (max-width:680px){
-  .footer_info>h3,p{
-    font-size: 13px;
-  }
-  .footer_mages>img {
-    width: 38px;
-    height: 56px;
-    object-fit: contain;
-}
-}
 
-@media (max-width:615px){
-    .footer_mainInfo{
-        flex-wrap: wrap;
-    }
-    .footer_info{
-      padding: 10px;
-    }
-}
+
