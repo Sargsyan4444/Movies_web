@@ -9,40 +9,8 @@ let categoriespart = document.querySelector('.categoriespart')
 let allCategories = document.querySelector('.allCategories')
 let currentPage = 1; 
 let slider = document.getElementById("slider");
-let searchImg = document.querySelector('.searchImg')
-let logo = document.querySelector('.logo')
-let closebtn = document.querySelector('.closebtn')
-let burgerMenu = document.getElementById('burgermenu')
-let mobileMenu = document.querySelector('.mobileMenu')
-let closeMenuBtn = document.querySelector('.closeMenuBtn')
 var selectedgenre = []
 
-searchImg.addEventListener('click',()=>{
-    searchImg.style.display="none"
-    searchInp.style.display="flex"
-    logo.style.display="none"
-    burgerMenu.style.display="none"
-})
-
-closebtn.addEventListener('click',()=>{
-    searchImg.style.display="block"
-    searchInp.style.display="none"
-    logo.style.display="block"
-    burgerMenu.style.display="block"
-})
-burgerMenu.addEventListener('click',()=>{
-    searchImg.style.display ="none"
-    logo.style.display="none"
-    mobileMenu.style.display = "flex"
-    burgerMenu.style.display = "none"
-})
-closeMenuBtn.addEventListener('click',()=>{
-    searchImg.style.display ="block"
-    logo.style.display="block"
-    mobileMenu.style.display = "none"
-    burgerMenu.style.display = "block"
-
-})
 
 function printAllMovieCards(page = 1) {
     fetch(`https://api.themoviedb.org/3/movie/popular?${api_key}&page=${page}`)   

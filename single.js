@@ -2,36 +2,13 @@ let movieInfo = document.querySelector('.movieInfo');
 let movieId = location.href.split('=')[1];
 let bgcImage = document.getElementById('movie__container');
 let smallImg = document.getElementById('smallImg');
-let searchInp= document.querySelector('.search_input')
 let actorsList = document.getElementById('actorsList');
 let movieBox = document.getElementById('movieBox')
 let popupBody = document.querySelector(".video-popup");
 let api_key = "api_key=9b702a6b89b0278738dab62417267c49";
 let img_url_original = "https://image.tmdb.org/t/p/original";
 let img_url = "https://image.tmdb.org/t/p/w500";
-let searchImg = document.querySelector('.searchImg')
-let logo = document.querySelector('.logo')
-let closebtn = document.querySelector('.closebtn')
-let burgerMenu = document.getElementById('burgermenu')
-let mobileMenu = document.querySelector('.mobileMenu')
-let closeMenuBtn = document.querySelector('.closeMenuBtn')
 
-
-
-
-
-
-burgerMenu.addEventListener('click',()=>{
-  logo.style.display="none"
-  mobileMenu.style.display = "flex"
-  burgerMenu.style.display = "none"
-})
-closeMenuBtn.addEventListener('click',()=>{
-  logo.style.display="block"
-  mobileMenu.style.display = "none"
-  burgerMenu.style.display = "block"
-
-})
 
 
 fetch(`https://api.themoviedb.org/3/movie/${movieId}?${api_key}`)
