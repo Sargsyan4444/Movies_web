@@ -55,45 +55,37 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}?${api_key}`)
           let videoBox = document.createElement('div');
           videoBox.classList.add('videoBox');
           videoBox.innerHTML = `
-          <div class="vd_card">
-          <iframe width="400" height="400" src="https://www.youtube.com/embed/${e.key}"  class="videoCard"
-          title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
-          encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen ></iframe>
-           <button onclick="openPopup('${e.key}')" class="openPopupBtn">Watch Trailer</button>
-          </div>
+            <div class="vd_card">
+              <div class="videoPreview" onclick="openPopup('${e.key}')">
+                <img src="https://img.youtube.com/vi/${e.key}/mqdefault.jpg" class="videoThumbnail" />
+                <div class="playOverlay"><i class="fa-brands fa-youtube"></i></div>
+              </div>
+              <button onclick="openPopup('${e.key}')" class="openPopupBtn">Watch Trailer</button>
+            </div>
           `;
           movieBox.append(videoBox);
         });
       }
     });
-
-    
-
-
-
-    function openPopup(videoKey) {
-      popupBody.style.display = "flex";
-      popupBody.innerHTML = `
-          <div class="popup-main">
-              <div class="popup-header">
-                  <button onclick="closePopup()">X</button>
-              </div>
-              <div class="popup-info">
-                  <iframe width="100%" height="500" src="https://www.youtube.com/embed/${videoKey}" 
-                  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
-                  encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-              </div>
-          </div>
-      `;
+  
+  function openPopup(videoKey) {
+    popupBody.style.display = "flex";
+    popupBody.innerHTML = `
+      <div class="popup-main">
+        <div class="popup-header">
+          <button onclick="closePopup()">X</button>
+        </div>
+        <div class="popup-info">
+          <iframe width="100%" height="500" src="https://www.youtube.com/embed/${videoKey}" 
+            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+            encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    `;
   }
   
   function closePopup() {
-      popupBody.innerHTML = "";
-      popupBody.style.display = "none";
+    popupBody.innerHTML = "";
+    popupBody.style.display = "none";
   }
-
-
-
-  

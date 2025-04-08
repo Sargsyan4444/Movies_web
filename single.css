@@ -482,6 +482,46 @@ footer{
   display: none;
 }
 
+
+.videoPreview {
+  position: relative;
+  width: 400px;
+  height: 225px;
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.videoPreview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.playOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.videoPreview:hover .playOverlay {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.fa-youtube{
+  color: #E50000;
+}
+
 @media (max-width:1104px){
   .logo{
       width: 173px;
@@ -502,14 +542,35 @@ footer{
   }
 }
 
-@media (max-width:766px){
+
+@media (max-width: 768px) {
+  .videoPreview {
+    width: 100%;
+    height: auto;
+  }
+
+  .playOverlay {
+    font-size: 32px;
+    padding: 14px;
+  }
+
+  .popup-main {
+    max-width: 95%;
+    padding: 15px;
+  }
+
+  .popup-info iframe {
+    width: 100%;
+    height: auto;
+  }
   #burgermenu{
-      display: block;
-  }
-  .menu{
-      display: none;
-  }
+    display: block;
 }
+.menu{
+    display: none;
+}
+}
+
 
 @media (max-width:680px){
   .footer_info>h3,p{
@@ -556,17 +617,6 @@ footer{
 }
 }
 
-@media (max-width:380px){
-  .videoCard{
-    width: 200px;
-    height: 200px;
-  }
-  .openPopupBtn{
-    width: 76px;
-    height: 32px;
-  }
-}
-
 @media (max-width:615px){
   .footer_mainInfo{
       flex-wrap: wrap;
@@ -584,6 +634,36 @@ footer{
   }
 }
 
+@media (max-width:380px){
+  .videoCard{
+    width: 200px;
+    height: 200px;
+  }
+  .openPopupBtn{
+    width: 76px;
+    height: 32px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .videoPreview {
+    width: 100%;
+    height: 180px;
+  }
+
+  .popup-main {
+    padding: 10px;
+  }
+
+  .playOverlay {
+    font-size: 26px;
+    padding: 10px;
+  }
+}
+
+
+
 @media (max-width:456px){
 
   .searchImg{
@@ -599,6 +679,11 @@ footer{
       width: 120px;
   }
 }
+
+
+
+
+
 
 
 
