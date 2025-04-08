@@ -5,7 +5,6 @@ let burgerMenu = document.getElementById('burgermenu');
 let mobileMenu = document.querySelector('.mobileMenu');
 let closeMenuBtn = document.querySelector('.closeMenuBtn');
 
-// Ստուգում ենք՝ արդյոք search/close տարրերը կան
 if (searchImg && searchInp && closebtn && logo && burgerMenu) {
     searchImg.addEventListener('click', () => {
         searchImg.style.display = "none";
@@ -22,7 +21,6 @@ if (searchImg && searchInp && closebtn && logo && burgerMenu) {
     });
 }
 
-// Ստուգում ենք՝ արդյոք mobile menu-ի տարրերը կան
 if (burgerMenu && mobileMenu && closeMenuBtn && searchImg && logo) {
     burgerMenu.addEventListener('click', () => {
         searchImg.style.display = "none";
