@@ -128,6 +128,7 @@ input::placeholder{
     display: flex;
     transition: transform 1s ease-in-out;
     background-color: #1E1E1E;
+    padding-top: 45px;
 }
 
 .slide {
@@ -147,6 +148,7 @@ input::placeholder{
     padding: 15px;
     border-radius: 10px;
     width: 50%;
+    margin-bottom: 68px;
 }
 /* categories part */
 .categories__container{
