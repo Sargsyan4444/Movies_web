@@ -1,0 +1,439 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #1E1E1E;
+    width: 100%;
+    font-family: "Open Sans", sans-serif;
+}
+main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 60px;
+
+}
+.favTitle{
+    padding-top: 124px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #E50000;
+}
+.movieCards{
+    background-color: #1E1E1E;
+}
+.card{
+    background-color: #000;
+}
+.cardMain>h2{
+    color: #E50000;
+    font-size: 20px;
+    padding-top: 16px;
+    font-weight: 400;
+}
+.mainImg{
+    margin-top: 20px;
+}
+.cardMain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+ .card{
+    width: 200px;
+    height: 300px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 15px;
+    overflow: hidden; 
+    position: relative;
+}
+
+.mainImg {
+    width: 100px;
+    height: 170px;
+    object-fit: contain;
+    transition: all 0.3s ease-in-out;
+
+}
+.movieContainer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+}
+#burgermenu{
+    display: none;
+}
+header{
+  background-color: #1E1E1E;
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+}
+.header__container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+}
+[class*="__container"] {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.menu{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+.menu_list{
+  list-style: none;
+}
+.menu_link:hover{
+  color: #fff;
+}
+.menu_link{
+  color: #E50000;
+  text-decoration: none;
+  font-size: 20px;
+
+
+}
+#search{
+  width: 283px;
+  height: 44px;
+  background-color: #666464;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+}
+input::placeholder{
+  color: #fff;
+  padding-left: 20px;
+}
+.search_input>img{
+  display: none;
+}
+.fa-cart-arrow-down{
+  font-size: 30px;
+  color: #E50000;
+  padding-top: 19px;
+}
+.signIn{
+  border: 1px solid white;
+  background-color: #E50000;
+  border-radius: 10px;
+  outline: none;
+  font-size: 18px;
+  color: black;
+  width: 90px;
+  height: 45px;
+  cursor: pointer;
+}
+.logo{
+  width: 200px;
+  height: 60px;
+  object-fit: contain;
+}
+.mobileMenu{
+  display: none;
+  gap: 20px;
+}
+.closeMenuBtn>h1{
+  font-size: 31px;
+  color: red;
+}
+.mobileMenu>li{
+  padding-top: 10px;
+}
+.mobileMenu>li{
+  list-style: none;
+}
+.mobileMenuLink{
+  /* transform: none; */
+  text-decoration: none;
+  color: #E50000;
+  font-size: 18px;
+}
+.fa-solid{
+  padding-bottom: 16px;
+}
+.closebtn{
+  font-size: 26px;
+  font-weight: 700;
+  color: #E50000;
+}
+.search_input{
+  align-items: center;
+  gap: 20px;
+}
+.search_input>h1{
+  cursor: pointer;
+}
+.search_input>h1{
+  display: none;
+}
+.searchImg{
+  display: none;
+}
+.fa-bookmark{
+  color: #fff;
+  padding-right: 140px;
+}
+.fa-bars{
+  font-size: 30px;
+  color: #E50000;
+  padding-top: 20px;
+}
+
+
+.footer__container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px 10px;
+  }
+  footer{
+    background-color: #000;
+    width: 100%;
+  }
+  .footer_mainInfo{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 30px 10px;
+  }
+  .footer_info>h3{
+    font-size: 18px;
+    color: #fff;
+  }
+  .footer_info>p{
+    color: #E50000;
+  }
+  .footer_info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+  }
+  .footer_mages{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+  }
+  .footer_info>img{
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+  }
+  .footer__container>img{
+    width: 200px;
+    height: 60px;object-fit: contain;
+  }
+  .footer_lastText{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer_lastText>p{
+    color: #E50000;
+  }
+  .lasttext_littles{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+  }
+  .lasttext_littles>p{
+    color: #E50000;
+  }
+
+  .search_input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .search_input > h1 {
+    display: none; /* սա պիտի լինի default */
+  }
+@media (max-width:1104px){
+    .logo{
+        width: 173px;
+    }
+    .menu_link{
+        font-size: 17px;
+    }
+    .menu{
+        gap: 14px;
+    }
+    #search {
+      width: 177px;
+      height: 40px;
+  }
+    .signIn {
+        width: 75px;
+        height: 42px;
+    }
+  }
+  
+  
+  @media (max-width: 768px) {
+    .videoPreview {
+      width: 100%;
+      height: auto;
+    }
+  
+    .playOverlay {
+      font-size: 32px;
+      padding: 14px;
+    }
+  
+    .popup-main {
+      max-width: 95%;
+      padding: 15px;
+    }
+  
+    .popup-info iframe {
+      width: 100%;
+      height: auto;
+    }
+    #burgermenu{
+      display: block;
+  }
+  .menu{
+      display: none;
+  }
+  }
+  
+  
+  @media (max-width:680px){
+    .footer_info>h3,p{
+      font-size: 13px;
+    }
+    .footer_mages>img {
+      width: 38px;
+      height: 56px;
+      object-fit: contain;
+  }
+  .videoCard{
+    max-width: 500px;
+    max-height: 500px;
+    background-position: center;
+    background-size: contain;
+  }
+  #search{
+    width: 200px;
+    height: 36px;
+  }
+  .logo{
+    width: 140px;
+  }
+  .categories__container{
+    flex-wrap: nowrap;
+  }
+  .categoriespart{
+    flex-direction: column;
+    gap: 27px;
+  }
+  .categoriespart>h2{
+    font-size: 32px;
+  }
+  .slide-info{
+    width: 200px;
+  }
+  .footer_info>h3,p{
+    font-size: 13px;
+  }
+  .footer_mages>img {
+    width: 38px;
+    height: 56px;
+    object-fit: contain;
+  }
+  }
+  
+  @media (max-width:615px){
+    .footer_mainInfo{
+        flex-wrap: wrap;
+    }
+    .footer_info{
+      padding: 10px;
+    }
+  }
+  
+  
+  
+  @media (max-width:600px){
+    .signIn {
+        display: none;
+    }
+  }
+  
+  @media (max-width:380px){
+    .videoCard{
+      width: 200px;
+      height: 200px;
+    }
+    .openPopupBtn{
+      width: 76px;
+      height: 32px;
+    }
+  }
+  
+  
+  @media (max-width: 480px) {
+    .videoPreview {
+      width: 100%;
+      height: 180px;
+    }
+  
+    .popup-main {
+      padding: 10px;
+    }
+  
+    .playOverlay {
+      font-size: 26px;
+      padding: 10px;
+    }
+  }
+  
+  
+  
+  @media (max-width:456px){
+  
+    .searchImg{
+        display: block;
+    }
+    .search_input{
+        display: none;
+    }
+    .search_input>h1{
+        display: block;
+    }
+    .logo{
+        width: 120px;
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  

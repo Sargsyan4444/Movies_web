@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Սիրելի ֆիլմեր</title>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="favMovies.css" />
+  <!-- <link rel="stylesheet" href="style.css" /> -->
+</head>
+<body>
+  <header>
+    <div class="header__container">
+        <div class="logoPart">
+            <a href="index.html"><img src="images/Logo (9).png" alt="" class="logo"></a>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li class="menu_list"><a href="index.html" class="menu_link">Home</a></li>
+                <li class="menu_list"><a href="favMovies.html" class="menu_link">My Movies</a></li>
+            </ul>
+        </nav>
+        <div class="search_input">
+            <input type="search" id="search" placeholder="search">
+            <h1 class="closebtn">X</h1>
+        </div>
+        <img src="images/f7_search.png" alt="" class="searchImg">
+        <i class="fa-solid fa-bars" id="burgermenu"></i>
+        <a href="login.html"><button class="signIn">signIn</button></a>
+            <ul class="mobileMenu">
+                <li><a href="index.html" class="mobileMenuLink">Home</a></li>
+                <li><a href="myMovies.html"  class="mobileMenuLink">My Movies</a></li>
+                <h1 class="closeMenuBtn">X</h1>
+                <a href="login.html"><button class="signIn">signIn</button></a>
+            </ul>
+    </div>
+</header>
+  <main>
+    <h1 class="favTitle">Favorite Movies</h1>
+    <div id="root" class="movieContainer"></div>
+  </main>
+  <footer>
+    <div class="footer__container">
+        <div class="footer_mainInfo">
+            <div class="footer_info">
+                <h3>Home</h3>
+                <p>Categories</p>
+                <p>Devices</p>
+                <p>Pricing</p>
+                <p>FAQ</p>
+            </div>
+            <div class="footer_info">
+                <h3>Movies</h3>
+                <p>Gernes</p>
+                <p>Trending</p>
+                <p>New Release</p>
+                <p>Popular</p>
+            </div>
+            <div class="footer_info">
+                <h3>Shows</h3>
+                <p>Gernes</p>
+                <p>Trending</p>
+                <p>New Release</p>
+                <p>Popular</p>
+            </div>
+            <div class="footer_info">
+                <h3>Support</h3>
+                <p>Contact Us</p>
+            </div>
+            <div class="footer_info">
+                <h3>Subscription</h3>
+                <p>Plans</p>
+                <p>Features</p>
+            </div>
+            <div class="footer_info">
+                <h3>Connect With Us</h3>
+                <div class="footer_mages">
+                    <img src="images/Button.svg" alt="">
+                    <img src="images/Button.png" alt="">
+                    <img src="images/Button (1).png" alt="">
+                </div>
+            </div>
+        </div>
+        <img src="images/Logo (9).png" alt="">
+        <hr>
+        <div class="footer_lastText">
+            <p>@2023 streamvib, All Rights Reserved</p>
+            <div class="lasttext_littles">
+                <p>Terms of Use</p>
+                <p>Privacy Policy</p>
+                <p>Cookie Policy</p>
+            </div>
+        </div>
+    </div>
+</footer>
+  <script src="favMovies.js"></script>
+  <script src="header.js"></script>
+</body>
+</html>

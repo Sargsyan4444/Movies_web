@@ -1,3 +1,5 @@
+
+// header.js
 let searchImg = document.querySelector('.searchImg');
 let logo = document.querySelector('.logo');
 let closebtn = document.querySelector('.closebtn');
